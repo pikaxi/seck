@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -19,10 +20,6 @@ public class SeckillDaoTest {
     @Resource
     private SeckillDao seckillDao;
     @Test
-    public void reduceNumber() {
-    }
-
-    @Test
     public void queryById() {
         long id=1000;
         Seckill seckill = seckillDao.queryById(id);
@@ -32,5 +29,13 @@ public class SeckillDaoTest {
 
     @Test
     public void queryAll() {
+        /*
+        java不保存形参的记录*（offset,limit）->>(arg0,arg1)
+        可使用注解@Param()
+         */
+       List<Seckill> lists= seckillDao.queryAll(0,100);
+        for(Seckill lis:lists){
+            System.out.println(lis);
+        }
     }
 }
