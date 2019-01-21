@@ -6,8 +6,8 @@
 
     <insert id="insertSuccessKilled" >
 --          过滤主键冲突
-        insert ignore into success_killed(seck_id,user_phone)
-        values(#{seckId},#{userNumber})
+        insert ignore into success_killed(seck_id,user_phone,state)
+        values(#{seckId},#{userNumber},0)
     </insert>
     <select id="queryByIdWithSeckill" resultType="SuccessKilled">
 --         根据id查询SuccessKilled并携带Seckill实体
@@ -23,7 +23,7 @@
           s.`end_time` "seckill.end_time",
           s.`create_time` "seckill.create_time"
         from success_killed sk
-        inner join seckill s
-        where sk.seck_id = #{seckId}
+        inner join seckill s on sk.seck_id=s.seck_id
+        where sk.seck_id = #{seckId} and sk.`user_phone`= #{userNumber}
     </select>
 </mapper>

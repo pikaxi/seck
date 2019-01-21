@@ -13,7 +13,7 @@ public interface SeckillDao {
      * @param killTime
      * @return 插入的行数
      */
-    int reduceNumber(long seckId , Date killTime);
+    int reduceNumber(@Param("seckId")long seckId ,@Param("killTime") Date killTime);
 
     /**
      * 根据商品ID获取库存信息
