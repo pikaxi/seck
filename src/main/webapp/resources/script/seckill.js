@@ -24,6 +24,7 @@ var seckill={
             //验证手机号
             if(!seckill.validatePhone(killPhone)){
                 //绑定phone
+                //
 
             }
         }

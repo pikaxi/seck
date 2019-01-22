@@ -76,7 +76,7 @@
        seckill.detail.init({
            seckId:${seckill.seckId},
            startTime:${seckill.startTime.time},//毫秒时间
-           endTime:${seckill.endTime.time}
+           endTime:${seckill.endTime.time},
        }) ;
     });
 </script>
