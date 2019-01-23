@@ -6,7 +6,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
  http://www.springframework.org/schema/mvc
- http://www.springframework.org/schema/tool/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ http://www.springframework.org/schema/mvc/spring-mvc.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
     <!--1：开启spring mvc注解模式
             自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
     -->
@@ -16,12 +18,12 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
     <!--静态资源默认servlet配置
         加入对静态资源的处理：js,gif,png
         允许使用/做整体映射-->
-    <mvc:default-servlet-handler/>
+    <mvc:default-servlet-handler default-servlet-name="seckill-dispatcher"/>
     <!--配置jsp 显示viewResolver-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value="/jsp"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
     <!--扫描controller-->
     <context:component-scan base-package="org.seckill.controller"/>

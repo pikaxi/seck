@@ -7,7 +7,6 @@ public class SuccessKilled {
     private long userPhone;
     private short state;
     private Date createTime;
-    //多对一
     private Seckill seckill;
 
     public long getSeckId() {

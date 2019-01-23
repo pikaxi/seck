@@ -20,13 +20,13 @@ import java.util.List;
 
 //url:/模块/资源/{id}/细分
 @Controller
-@RequestMapping("/seckill")
+@RequestMapping(value="/seckill")
 public class SeckillController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private SeckillService service;
 
-    @RequestMapping(name="/list" ,method = RequestMethod.GET)
+    @RequestMapping(value="/list" ,method = RequestMethod.GET)
     public String list(Model model){
         //获取列表页
         List<Seckill> list = service.getSeckillList();
@@ -34,8 +34,8 @@ public class SeckillController {
         return "list";
     }
 
-    @RequestMapping(name = "/{seckId}/detail",method = RequestMethod.GET)
-    public String detail(@PathVariable("seckId") Long seckId,Model model){
+    @RequestMapping(value = "/{seckId}/detail",method = RequestMethod.GET)
+    public String detail(@PathVariable("seckId") Long seckId, Model model){
         if(seckId==null){
             return "redirect:/seckill/list";
         }
